@@ -1,0 +1,20 @@
+# The Daily Studio — Deep-Link-Hosting (IONOS / Apache)
+
+# 1) Apple App Site Association ohne Datei-Endung als JSON ausliefern.
+#    iOS holt sie unter https://thedailystudio.app/.well-known/apple-app-site-association
+<Files "apple-app-site-association">
+  ForceType application/json
+</Files>
+
+# 2) Android assetlinks ebenfalls als JSON (falls der Server es nicht ohnehin tut).
+<Files "assetlinks.json">
+  ForceType application/json
+</Files>
+
+# 3) Buddy-Invite: jede /invite/<token>-URL auf die Landing-Seite leiten.
+#    (Wenn die App installiert ist, fängt das OS den Link VOR dem Server ab und
+#     öffnet direkt die App — diese Seite ist nur der Fallback ohne App.)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^invite/.*$ /invite.html [L]
+</IfModule>

@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "AGMJ39JWTX.com.thedailystudio.app",
+        "paths": [ "/invite/*" ]
+      }
+    ]
+  }
+}
